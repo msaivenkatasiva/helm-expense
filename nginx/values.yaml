@@ -2,6 +2,6 @@ configmap:
   port: 8080
 deployment:
   replicas: 3
-  imageVersion: manline-bookworm-perl
+  imageVersion: mainline-alpine3.23
 service:
   nodePort: 32134
