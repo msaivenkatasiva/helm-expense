@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  selector: 
+    project: expense
+    component: frontend
+    tier: webtier
+  ports:
+  - protocol: TCP
+    port: 80
+    targetport: {{ .Values.configmap.port }}
