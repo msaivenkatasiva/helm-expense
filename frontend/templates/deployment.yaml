@@ -6,29 +6,29 @@ metadata:
   labels:
     project: expense
     component: frontend
-    tier: webtier
+    tier: web
 spec:
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ Values.deployment.replicas }}
   selector:
     matchLabels:
       project: expense
       component: frontend
-      tier: webtier
+      tier: web
   template:
     metadata:
       labels:
         project: expense
         component: frontend
-        tier: webtier
+        tier: web
     spec:
       containers:
       - name: frontend
-        image: msaivenkatasiva/expense-frontend:{{ .Values.deployment.imageVersion}}
+        image: msaivenkatasiva/expense-frontend:{{ .Values.deployment.imageVersion }}
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
-          subpath: nginx.conf
-          readonly: true
+          subPath: nginx.conf
+          readOnly: true
       volumes:
       - name: nginx-conf
         configMap:
