@@ -4,10 +4,12 @@ metadata:
   name: nginx
   # namespace: expense
 spec:
+  type: LoadBalancer
   selector:
     app: nginx
     purpose: helm
   ports:
   - protocol: TCP
     port: 80 #service-port
-    targetPort: 8080 #target-port
+    targetPort: {{ .Values.configmap.port }} #target-port
+    nodePort: {{ .Values.service.nodePort }}
